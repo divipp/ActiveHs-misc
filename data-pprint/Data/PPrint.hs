@@ -22,8 +22,14 @@ import Data.Data (Data)
 -- The exceptions are shown as bottom signs
 -- followed by explanations.
 pprint :: Data a => a -> IO Doc
-pprint x = do
-    x <- eval 1 700 x
+pprint = pprintTo 700
+
+-- |Prettyprint a 'Data' value, showing up to approximately
+-- the specified number of characters. Use this to show
+-- more than the default pprint allows.
+pprintTo :: Data a => Int -> a -> IO Doc
+pprintTo max x = do
+    x <- eval 1 max x
     let ([x'], es) = numberErrors [x]
     return $ toDoc x' $+$ nest 2 (showBotts es)
 

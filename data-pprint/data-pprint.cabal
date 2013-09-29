@@ -1,5 +1,5 @@
 name:                data-pprint
-version:             0.2.1.5
+version:             0.2.2
 category:            Testing, Text
 synopsis:            Prettyprint and compare Data values
 description:
@@ -22,7 +22,7 @@ description:
     Usage examples:
     .
     > pprint [1..]
-    > pprint $ repeat [1..]
+    > pprintTo 10000 $ repeat [1..]
     > pprint $ iterate (*10) 1
     > pprint $ map length $ replicate 5 [1..] ++ repeat []
     > pprint [2 `div` 0, error "xxx", 18, 4 `div` 0]
